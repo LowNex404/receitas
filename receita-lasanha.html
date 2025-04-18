@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="img/restaurant.png" type= "image/x-icon">
+  <title>Lasanha à Bolonhesa</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Poppins, sans-serif;
+      background-color: #fff;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .image-wrapper {
+      height: 100vh;
+      overflow: hidden;
+      border-radius: 0 0 30px 30px;
+      position: relative;
+    }
+
+    .top-image {
+  background-image: url('img/principal.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-image .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* Escurecimento */
+  border-radius: 0 0 30px 30px;
+  z-index: 1;
+}
+
+.top-image h1 {
+  color: white;
+  font-size: 3em;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+    section.scroll-content {
+      background: #fff;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: -100px auto 0;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 3;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: orange;
+    }
+
+    p.desc {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    ul {
+      margin-bottom: 30px;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+
+    .voltar {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      background: orange;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .voltar:hover {
+      background: darkorange;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9em;
+      padding-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .top-image h1 {
+        font-size: 2em;
+        padding: 0 10px;
+      }
+
+      section.scroll-content {
+        padding: 20px;
+        margin-top: -60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Imagem de topo com título centralizado -->
+  <div class="image-wrapper">
+    <div class="top-image">
+      <div class="overlay"></div>
+      <h1>Lasanha à Bolonhesa</h1>
+    </div>
+  </div>
+  
+
+  <!-- Conteúdo principal -->
+  <section class="scroll-content">
+    <h2>O que é uma Lasanha?</h2>
+    <p class="desc">A Lasanha à Bolonhesa é um prato tradicional italiano, feito com camadas de massa intercaladas com molho à bolonhesa, molho branco e queijo gratinado. Uma receita clássica, saborosa e perfeita para ocasiões especiais.</p>
+
+    <h2>🧾 Ingredientes</h2>
+    <ul>
+      <li>500g de massa para lasanha</li>
+      <li>500g de carne moída</li>
+      <li>1 cebola picada</li>
+      <li>2 dentes de alho picados</li>
+      <li>1 lata de molho de tomate</li>
+      <li>500ml de molho branco (bechamel)</li>
+      <li>300g de queijo mussarela</li>
+      <li>100g de queijo parmesão ralado</li>
+      <li>Sal, pimenta e orégano a gosto</li>
+    </ul>
+
+    <h2>🍳 Modo de Preparo</h2>
+    <ul>
+      <li>1. Refogue a cebola e o alho, adicione a carne e cozinhe até dourar.</li>
+      <li>2. Acrescente o molho de tomate, tempere e deixe apurar.</li>
+      <li>3. Cozinhe a massa da lasanha conforme as instruções.</li>
+      <li>4. Em um refratário, monte camadas: molho, massa, carne, molho branco e queijo.</li>
+      <li>5. Finalize com parmesão e leve ao forno por 30 minutos a 200°C.</li>
+    </ul>
+
+    <a href="index.html" class="voltar">← Voltar</a>
+  </section>
+
+  <footer>
+    Feito por Fred Pereira - 2025
+  </footer>
+
+</body>
+</html>

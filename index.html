@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receitas que Encantam</title>
+  <link rel="icon" href="img/restaurant.png" type= "image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      background: #222;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header img {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      color: orange;
+      font-size: 32px;
+    }
+
+    header p {
+      color: #ccc;
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+    } 
+
+    footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9em;
+    padding-bottom: 20px;
+    }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      gap: 40px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .wrapper {
+      perspective: 1000px;
+      flex-shrink: 0;
+    }
+
+    .single-card {
+      width: 300px;
+      height: 450px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+      border-radius: 20px;
+    }
+
+    .wrapper:hover .single-card {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid orange;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .front {
+      background-size: cover;
+      background-position: center center;
+      z-index: 2;
+    }
+
+    .back {
+      background-color: #444;
+      color: orange;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .content {
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 25px;
+      margin-bottom: 10px;
+      color: orange;
+    }
+
+    .content p {
+      color: #ffffff;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .icon:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+
+    .recipe-link {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .recipe-text {
+      visibility: hidden;
+      font-size: 16px;
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      color: orange;
+      font-weight: bold;
+    }
+
+    .icon:hover + .recipe-text {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(10px);
+    }
+
+    /* === MOBILE SLIDER === */
+    @media (max-width: 768px) {
+      .card-container {
+        overflow: hidden;
+      }
+
+      .slider-wrapper {
+        width: 100vw;
+        gap: 0;
+        transform: translateX(0);
+      }
+
+      .wrapper {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+      }
+
+      .single-card {
+        width: clamp(250px, 80%, 350px);
+        aspect-ratio: 2/3;
+        margin: auto;
+      }
+
+      .slider-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 30px;
+      }
+
+      .slider-buttons button {
+        font-size: 32px;
+        background: none;
+        border: none;
+        color: orange;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .slider-buttons button:focus {
+        outline: none;
+      }
+    }
+
+    /* Esconder os botões no desktop */
+    @media (min-width: 769px) {
+      .slider-buttons {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <img src="img/logo.png" alt="Logo do Site" />
+    <h1>Receitas que Encantam</h1>
+    <p>Explore nosso cardápio interativo e descubra receitas incríveis divididas em entradas, pratos principais e sobremesas. Clique nas cartas para ver mais!</p>
+  </header>
+
+  <!-- Container principal -->
+  <div class="card-container">
+    <div class="slider-wrapper" id="slider">
+      <!-- Entrada -->
+      <div class="wrapper">
+        <div class="single-card">
+          <div class="front" style="background-image: url('img/entrada.jpg');"></div>
+          <div class="back">
+            <div class="content">
+              <h2>Bruschetta Italiana</h2>
+              <p><b>Dificuldade ★★★☆☆</b></p>
+              <p><b>Tempo médio: 30 minutos</b></p>
+              <a href="receita-bruschetta.html" class="recipe-link">
+                <img src="img/restaurant.png" alt="Ir para Receita" class="icon">
+                <span class="recipe-text">Receita</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prato principal -->
+      <div class="wrapper">
+        <div class="single-card">
+          <div class="front" style="background-image: url('img/principal.jpg');"></div>
+          <div class="back">
+            <div class="content">
+              <h2>Lasanha à Bolonhesa</h2>
+              <p><b>Dificuldade ★★★★☆</b></p>
+              <p><b>Tempo médio: 1 hora</b></p>
+              <a href="receita-lasanha.html" class="recipe-link">
+                <img src="img/restaurant.png" alt="Ir para Receita" class="icon">
+                <span class="recipe-text">Receita</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sobremesa -->
+      <div class="wrapper">
+        <div class="single-card">
+          <div class="front" style="background-image: url('img/sobremesa.jpg');"></div>
+          <div class="back">
+            <div class="content">
+              <h2>Tiramisu Clássico</h2>
+              <p><b>Dificuldade ★★★★☆</b></p>
+              <p><b>Tempo médio: 45 minutos</b></p>
+              <a href="receita-tiramisu.html" class="recipe-link">
+                <img src="img/restaurant.png" alt="Ir para Receita" class="icon">
+                <span class="recipe-text">Receita</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botões do carrossel -->
+  <div class="slider-buttons">
+    <button onclick="prevCard()">&#10094;</button>
+    <button onclick="nextCard()">&#10095;</button>
+  </div>
+
+  <footer>
+    Feito por Fred Pereira - 2025
+  </footer>
+
+  <!-- Script do Carrossel Infinito -->
+  <script>
+    let currentIndex = 0;
+    const slider = document.getElementById("slider");
+    const totalCards = slider.children.length;
+
+    function updateSlider() {
+      const offset = -currentIndex * window.innerWidth;
+      slider.style.transform = `translateX(${offset}px)`;
+    }
+
+    function nextCard() {
+      currentIndex = (currentIndex + 1) % totalCards;
+      updateSlider();
+    }
+
+    function prevCard() {
+      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+      updateSlider();
+    }
+
+    // Redimensiona corretamente ao mudar o tamanho da tela
+    window.addEventListener("resize", updateSlider);
+
+    // Começa do início
+    updateSlider();
+  </script>
+</body>
+</html>
